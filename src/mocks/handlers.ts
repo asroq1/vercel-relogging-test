@@ -13,7 +13,7 @@ const createNewsArticle = () => ({
   publishedAt: faker.date.recent({ days: 30 }).toISOString(),
   hits: faker.number.int({ min: 100, max: 10000 }),
   imageCaption: faker.lorem.sentence(),
-  imagePath: faker.image.url({ width: 640, height: 480, category: 'nature' }),
+  imagePath: faker.image.url({ width: 640, height: 480 }),
 })
 
 export const handlers = [
@@ -127,7 +127,7 @@ export const handlers = [
 // 이미지 객체 생성 함수
 const createImage = () => ({
   id: faker.number.int({ min: 1, max: 1000 }),
-  url: faker.image.url({ width: 640, height: 480, category: 'nature' }),
+  url: faker.image.url({ width: 640, height: 480 }),
   caption: faker.lorem.sentence(),
   orderIndex: faker.number.int({ min: 0, max: 10 }),
 })
@@ -187,7 +187,7 @@ const createPloggingEventDetail = (id: number) => {
     hits: faker.number.int({ min: 0, max: 1000 }),
     organizerName: faker.company.name(),
     managerName: faker.person.fullName(),
-    phoneNumber: faker.phone.number('010-1111-1111'),
+    phoneNumber: faker.phone.number(),
     participationTarget: faker.helpers.arrayElement([
       '전체',
       '청소년',
