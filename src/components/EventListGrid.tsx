@@ -21,7 +21,7 @@ export default function EventListGrid() {
   if (eventListIsError) return <div>Error: {eventListIsError}</div>
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         {eventsList?.content?.map((eventData: EventContentCard) => (
           <EventCard eventData={eventData} key={eventData.id} />
         ))}

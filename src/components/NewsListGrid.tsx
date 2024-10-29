@@ -25,7 +25,7 @@ export default function NewsListGrid() {
   if (!newsList) return null
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         {newsList?.newsArticleSimpleResponseList?.map(
           (article: NewsArticleCard) => (
             <NewsCard article={article} key={article.id} />

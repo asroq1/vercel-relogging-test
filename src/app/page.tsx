@@ -29,14 +29,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* 네비게이션 바 */}
-      <section className="w-dvw max-w-[1440px] margin-auto hidden laptop:block">
+      <section className="margin-auto hidden w-dvw max-w-[1440px] laptop:block">
         <Image
           {...images.desktop}
           alt="로고 이미지"
           priority
           quality={100}
           sizes="(min-width: 1200px) 100vw"
-          className="w-full h-auto"
+          className="h-auto w-full"
         />
       </section>
       <section className="hidden tablet:block laptop:hidden">
@@ -46,7 +46,7 @@ export default function Home() {
           priority
           quality={85}
           sizes="(min-width: 600px) and (max-width: 1199px) 100vw"
-          className="w-full h-auto"
+          className="h-auto w-full"
         />
       </section>
       <section className="block tablet:hidden">
@@ -56,19 +56,19 @@ export default function Home() {
           priority
           quality={100}
           sizes="(max-width: 599px) 100vw"
-          className="w-full h-auto"
+          className="h-auto w-full"
         />
       </section>
       {/* 메인 콘텐츠 */}
-      <main className="max-w-7xl mx-auto mt-16">
+      <main className="mx-auto mt-16 max-w-7xl">
         {/* 헤더 섹션 */}
         {/* 탭 섹션 */}
-        <div className="bg-white shadow rounded-lg p-5 laptop:p-10">
-          <div className="flex border-b border-gray-200 mb-4">
+        <div className="rounded-lg bg-white p-5 shadow laptop:p-10">
+          <div className="mb-4 flex border-b border-gray-200">
             <button
-              className={`text-gray-600 py-4 px-6 block hover:text-textLight focus:outline-none ${
+              className={`block px-6 py-4 text-gray-600 hover:text-textLight focus:outline-none ${
                 activeTab === '환경 뉴스'
-                  ? 'text-blue-500 border-b-2 font-medium border-text'
+                  ? 'border-b-2 border-text font-medium text-blue-500'
                   : ''
               }`}
               onClick={() => setActiveTab('환경 뉴스')}
@@ -76,9 +76,9 @@ export default function Home() {
               환경 뉴스
             </button>
             <button
-              className={`text-gray-600 py-4 px-6 block hover:text-textLight focus:outline-none ${
+              className={`block px-6 py-4 text-gray-600 hover:text-textLight focus:outline-none ${
                 activeTab === '지자체 행사'
-                  ? 'text-blue-500 border-b-2 font-medium border-text'
+                  ? 'border-b-2 border-text font-medium text-blue-500'
                   : ''
               }`}
               onClick={() => setActiveTab('지자체 행사')}

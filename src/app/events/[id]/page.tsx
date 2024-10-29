@@ -62,29 +62,29 @@ export default function EventDetailPage() {
     )
   }
   return (
-    <article className="flex m-auto max-h-[1355px] w-full  gap-6 max-w-7xl bg-white mt-16 p-5">
+    <article className="m-auto mt-16 flex max-h-[1355px] w-full max-w-7xl gap-6 bg-white p-5">
       {/* // 이벤트 이미지 밎 상세 정보 */}
-      <div className="w-full flex gap-6">
+      <div className="flex w-full gap-6">
         {/* 왼쪽 사이드바 */}
-        <section className="flex flex-[8] flex-col md:col-span-6 gap-10">
+        <section className="flex flex-[8] flex-col gap-10 md:col-span-6">
           {/* 이벤트 상단 제목 */}
-          <div className="flex flex-col gap-10 w-full">
+          <div className="flex w-full flex-col gap-10">
             <HomeButton />
             <header className="flex flex-col gap-2">
-              <div className="flex gap-2 w-full">
-                <span className="text-sm text-orange font-bold">
+              <div className="flex w-full gap-2">
+                <span className="text-sm font-bold text-orange">
                   {eventDetail?.region}
                 </span>
-                <span className="text-sm text-textLight font-bold">일회성</span>
-                <span className="text-sm text-textLight font-bold">
+                <span className="text-sm font-bold text-textLight">일회성</span>
+                <span className="text-sm font-bold text-textLight">
                   봉사시간 부여
                 </span>
               </div>
               <h1 className="text-3xl font-bold">{eventDetail?.title}</h1>
               <div className="flex justify-between">
                 <div className="flex items-center">
-                  <MapPin className="w-4 h-4" />
-                  <p className="text-sm text-text font-bold">양재도서관</p>
+                  <MapPin className="h-4 w-4" />
+                  <p className="text-sm font-bold text-text">양재도서관</p>
                 </div>
                 <div>
                   <p className="text-sm text-textLight">
@@ -100,13 +100,13 @@ export default function EventDetailPage() {
               alt="Plogging eventDetail main image"
               width={100}
               height={100}
-              className="w-full h-auto rounded-lg "
+              className="h-auto w-full rounded-lg"
             />
           </div>
           {/* 이벤트 상세 정보 */}
-          <div className="bg-background p-6 rounded-lg">
+          <div className="rounded-lg bg-background p-6">
             {/* 상세 내용 제외 */}
-            <div className="rounded-lg mb-4 grid grid-cols-1 laptop:grid-cols-2 gap-4 text-sm">
+            <div className="mb-4 grid grid-cols-1 gap-4 rounded-lg text-sm laptop:grid-cols-2">
               <LabeledContent
                 label="참여기간"
                 content={`${eventDetail.startDate} - ${eventDetail.endDate}`}
@@ -141,11 +141,11 @@ export default function EventDetailPage() {
                 content={eventDetail?.phoneNumber ?? '-'}
               />
             </div>
-            <div className="prose max-w-none text-sm space-y-4">
-              <span className="bg-green whitespace-nowrap p-1 border border-green- text-white text-xs font-semibold rounded-md">
+            <div className="prose max-w-none space-y-4 text-sm">
+              <span className="border-green- whitespace-nowrap rounded-md border bg-green p-1 text-xs font-semibold text-white">
                 상세내용
               </span>
-              <p className="text-xs text-text mb-4">
+              <p className="mb-4 text-xs text-text">
                 {eventDetail?.content ?? '-'}
               </p>
             </div>
@@ -153,7 +153,7 @@ export default function EventDetailPage() {
               참여하기
             </button> */}
           </div>
-          <div className="flex justify-between items-center">
+          <div className="flex items-center justify-between">
             <Button
               className="bg-solid"
               onClick={() => {
@@ -173,10 +173,10 @@ export default function EventDetailPage() {
           </div>
         </section>
         {/* 중앙 Divider */}
-        <div className="hidden laptop:block w-[1px] bg-gray-200 h-auto" />
+        <div className="hidden h-auto w-[1px] bg-gray-200 laptop:block" />
 
         {/* 오른쪽 사이드바 */}
-        <section className="hidden laptop:block flex-[2] space-y-4">
+        <section className="hidden flex-[2] space-y-4 laptop:block">
           {eventsListIsLoading && <div>sideData...</div>}
           {eventListIsError && <div>Error: {eventListIsError}</div>}
           {eventsList?.content?.map((eventData: EventContentCard) => (

@@ -8,8 +8,8 @@ export default function LabeledContent({
   content,
 }: LabeledContentProps) {
   return (
-    <div className="flex gap-2 items-center">
-      <span className="bg-green whitespace-nowrap p-1 border border-green- text-white text-xs font-semibold rounded-md">
+    <div className="flex items-center gap-2">
+      <span className="border-green- whitespace-nowrap rounded-md border bg-green p-1 text-xs font-semibold text-white">
         {label ?? '-'}
       </span>
       <span className="text-xs text-text">{content ?? '-'}</span>

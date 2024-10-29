@@ -69,19 +69,19 @@ export default function NewsArticlePage() {
     return <div>Error: {newsDetailIsError}</div>
   if (newsDetailError) return <div>Error: {newsDetailError.message}</div>
   return (
-    <article className="flex m-auto max-h-[1355px] w-full  gap-6 max-w-7xl bg-white mt-16 p-5">
-      <div className="w-full flex gap-6">
+    <article className="m-auto mt-16 flex max-h-[1355px] w-full max-w-7xl gap-6 bg-white p-5">
+      <div className="flex w-full gap-6">
         {/* 왼쪽 섹션 (7/10) */}
-        <section className="flex flex-[8] flex-col md:col-span-6 gap-10">
+        <section className="flex flex-[8] flex-col gap-10 md:col-span-6">
           {/* 상단 제목  */}
-          <div className="flex flex-col gap-10 w-full">
+          <div className="flex w-full flex-col gap-10">
             <HomeButton />
             <header className="mb-6">
               {/* 뉴스 헤드라인 */}
-              <h1 className="text-2xl font-bold mb-2">{newsDetail?.title}</h1>
+              <h1 className="mb-2 text-2xl font-bold">{newsDetail?.title}</h1>
               {/* 뉴스 정보 */}
               <div className="flex justify-between">
-                <p className="text-sm text-text font-semibold">
+                <p className="text-sm font-semibold text-text">
                   {newsDetail?.author}
                 </p>
                 <p className="text-sm text-gray-500">
@@ -96,16 +96,16 @@ export default function NewsArticlePage() {
               alt="Article main image"
               width={200}
               height={200}
-              className="w-full h-auto rounded-lg"
+              className="h-auto w-full rounded-lg"
             />
             {/* 뉴스 썸네일 설명 */}
             <p className="mt-2 text-sm text-gray-500">
               {newsDetail?.imageCaption}
             </p>
           </div>
-          <div className="flex flex-col bg-background p-5 gap-4 rounded-lg">
-            <div className="rounded-lg w-full">
-              <div className="flex items-center mb-6 gap-3">
+          <div className="flex flex-col gap-4 rounded-lg bg-background p-5">
+            <div className="w-full rounded-lg">
+              <div className="mb-6 flex items-center gap-3">
                 <GptIcon />
                 <div>
                   <p className="font-semibold">ChatGPT</p>
@@ -122,7 +122,7 @@ export default function NewsArticlePage() {
               <div>
                 <Button
                   asChild
-                  className="w-full bg-background text-textLight border"
+                  className="w-full border bg-background text-textLight"
                 >
                   <Link href={`${newsDetail?.source}`}>기사 전문 보기</Link>
                 </Button>
@@ -130,7 +130,7 @@ export default function NewsArticlePage() {
             </div>
           </div>
           {/* 하단 기사 버튼 */}
-          <div className="flex justify-between items-center">
+          <div className="flex items-center justify-between">
             <Button
               className="bg-solid"
               onClick={() => {
@@ -150,9 +150,9 @@ export default function NewsArticlePage() {
           </div>
         </section>
         {/* 중앙 Divider */}
-        <div className="hidden laptop:block w-[1px] bg-gray-200 h-auto" />
+        <div className="hidden h-auto w-[1px] bg-gray-200 laptop:block" />
         {/* 오른쪽 사이드바 */}
-        <section className="hidden laptop:block flex-[2] space-y-4">
+        <section className="hidden flex-[2] space-y-4 laptop:block">
           {newsList?.newsArticleSimpleResponseList?.map(
             (article: NewsArticleCard) => (
               <NewsCard article={article} key={article.id} />

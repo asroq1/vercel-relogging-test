@@ -17,12 +17,12 @@ export default function CommonLayout({
   return (
     <html lang="ko">
       <body className="bg-white">
-        <nav className="bg-white shadow-sm">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex justify-between h-16">
+        <nav className="shadow-smshadow-sm bg-white">
+          <div className="mx-auto max-w-7xl">
+            <div className="flex h-16 justify-between">
               <div className="flex">
-                <div className="flex-shrink-0 flex items-center">
-                  <Link href="/" className="font-bold text-xl">
+                <div className="flex flex-shrink-0 items-center">
+                  <Link href="/" className="text-xl font-bold">
                     <Image
                       src={'/symbol.jpg'}
                       alt="상단 심볼 로고"
@@ -36,7 +36,7 @@ export default function CommonLayout({
               <div className="hidden sm:ml-6 sm:flex sm:items-center">
                 <Link
                   href="/login"
-                  className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                  className="rounded-md px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700"
                 >
                   로그인
                 </Link>

@@ -39,47 +39,23 @@ const NewsCard = ({ article }: { article: NewsArticleCard }) => {
     <Card
       onClick={() => onClickNewsDetail('side')}
       key={article?.id}
-      className="
-        cursor-pointer 
-        hover:shadow-lg 
-        transition-shadow
-        p-4
-        duration-300
-        w-full
-        max-w-[378px]           
-        min-h-[200px]         
-        laptop:max-w-[378px]    /* 데스크탑 너비 */
-        laptop:min-h-[200px]    /* 데스크탑 높이 */
-        aspect-[378/175]
-        overflow-hidden
-        flex              
-        flex-col 
-        gap-4
-        "
+      className="/* 데스크탑 너비 */ /* 데스크탑 높이 */ flex aspect-[378/175] min-h-[200px] w-full max-w-[378px] cursor-pointer flex-col gap-4 overflow-hidden p-4 transition-shadow duration-300 hover:shadow-lg laptop:min-h-[200px] laptop:max-w-[378px]"
     >
       {/* 카드 헤더 */}
-      <CardHeader className="p-0 h-[25%]  space-y-0">
+      <CardHeader className="h-[25%] space-y-0 p-0">
         <p className="text-sm text-textLight">{article?.publishedAt}</p>
-        <CardTitle className="mb-2 text-lg text-text font-bold line-clamp-1 flex-shrink-0">
+        <CardTitle className="mb-2 line-clamp-1 flex-shrink-0 text-lg font-bold text-text">
           {article?.title}
         </CardTitle>
       </CardHeader>
       {/* 카드 컨텐츠 */}
-      <CardContent className="flex gap-4 p-0 flex-1 min-h-0  h-[75%] flex-shrink-0">
-        <div className="flex-[6] flex items-center">
-          <p
-            className="
-            text-xs
-            text-text
-            text-muted-foreground
-            line-clamp-3
-            overflow-hidden
-          "
-          >
+      <CardContent className="flex h-[75%] min-h-0 flex-1 flex-shrink-0 gap-4 p-0">
+        <div className="flex flex-[6] items-center">
+          <p className="line-clamp-3 overflow-hidden text-xs text-muted-foreground text-text">
             {article?.aiSummary}
           </p>
         </div>
-        <div className="flex-[4] relative">
+        <div className="relative flex-[4]">
           <Image
             src={article.imagePath ?? DEFAULT_IMAGE}
             alt={article?.title}
