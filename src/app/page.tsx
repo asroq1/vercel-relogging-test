@@ -7,24 +7,24 @@ import Image from 'next/image'
 
 const images = {
   mobile: {
-    src: '/mobileLogo.jpg',
+    src: '/mobileBanner.png',
     width: 500,
     height: 500,
   },
   tablet: {
-    src: '/mobileLogo.jpg',
+    src: '/mobileBanner.png',
     width: 768,
     height: 768,
   },
   desktop: {
-    src: '/webLogo.jpg',
+    src: '/laptopBanner.png',
     width: 1000,
     height: 1000,
   },
 } as const
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState('환경 뉴스')
+  const [activeTab, setActiveTab] = useState('지자체 플로깅')
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -44,7 +44,7 @@ export default function Home() {
           {...images.tablet}
           alt="로고 이미지"
           priority
-          quality={85}
+          quality={100}
           sizes="(min-width: 600px) and (max-width: 1199px) 100vw"
           className="h-auto w-full"
         />
@@ -60,11 +60,21 @@ export default function Home() {
         />
       </section>
       {/* 메인 콘텐츠 */}
-      <main className="mx-auto mt-16 max-w-7xl">
+      <main className="mx-auto max-w-7xl laptop:mt-16">
         {/* 헤더 섹션 */}
         {/* 탭 섹션 */}
         <div className="rounded-lg bg-white p-5 shadow laptop:p-10">
           <div className="mb-4 flex border-b border-gray-200">
+            <button
+              className={`block px-6 py-4 text-gray-600 hover:text-textLight focus:outline-none ${
+                activeTab === '지자체 플로깅'
+                  ? 'border-b-2 border-text font-medium text-blue-500'
+                  : ''
+              }`}
+              onClick={() => setActiveTab('지자체 플로깅')}
+            >
+              지자체 플로깅
+            </button>
             <button
               className={`block px-6 py-4 text-gray-600 hover:text-textLight focus:outline-none ${
                 activeTab === '환경 뉴스'
@@ -75,21 +85,11 @@ export default function Home() {
             >
               환경 뉴스
             </button>
-            <button
-              className={`block px-6 py-4 text-gray-600 hover:text-textLight focus:outline-none ${
-                activeTab === '지자체 행사'
-                  ? 'border-b-2 border-text font-medium text-blue-500'
-                  : ''
-              }`}
-              onClick={() => setActiveTab('지자체 행사')}
-            >
-              지자체 행사
-            </button>
           </div>
+          {activeTab === '지자체 플로깅' && <EventListGrid />}
           {/* 뉴스 그리드 */}
           {activeTab === '환경 뉴스' && <NewsListGrid />}
           {/* 지자체 행사 그리드 */}
-          {activeTab === '지자체 행사' && <EventListGrid />}
           {/* )} */}
         </div>
       </main>
