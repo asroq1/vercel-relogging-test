@@ -7,7 +7,7 @@ interface IEventsQueries {
   eventId?: string
 }
 
-async function fetchEventsArticle(page: number, size: number) {
+export async function fetchEventsArticle(page: number, size: number) {
   const queryParams = new URLSearchParams({
     page: page.toString(),
     size: size.toString(),

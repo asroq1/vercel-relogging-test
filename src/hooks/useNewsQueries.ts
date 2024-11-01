@@ -20,7 +20,7 @@ async function fetchNewsArticle(articleId: string) {
   return response.json()
 }
 
-const fetchNewsLists = async (page: number, pageSize: number) => {
+export const fetchNewsLists = async (page: number, pageSize: number) => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/newsArticles/list?page=${page}&pageSize=${pageSize}`,
   )
