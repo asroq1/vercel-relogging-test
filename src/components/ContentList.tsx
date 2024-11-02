@@ -17,7 +17,6 @@ interface IContentList {
   cotentListIsLoading?: boolean
   contentListIsError?: boolean
   contentListError?: Error
-  refetch?: () => void
 }
 
 const ContentList = ({
@@ -30,7 +29,6 @@ const ContentList = ({
   contentListError,
   cotentListIsLoading,
   contentListIsError,
-  refetch,
 }: IContentList) => {
   const layoutStyles = {
     grid: 'grid grid-cols-1 gap-6 md:grid-cols-3',
@@ -55,7 +53,6 @@ const ContentList = ({
     return (
       <ErrorAlert
         error={contentListError?.message || '데이터를 불러오는데 실패했습니다'}
-        onRetry={refetch}
       />
     )
   }

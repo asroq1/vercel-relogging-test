@@ -18,7 +18,6 @@ const EventDetailSection = ({
   isLoading,
   isError,
   error,
-  refetch,
   onChangeEventDetail,
 }: any) => {
   // 뉴스 디테일
@@ -36,7 +35,6 @@ const EventDetailSection = ({
       <section className="flex flex-[8] flex-col gap-10 md:col-span-6">
         <ErrorAlert
           error={error?.message || '데이터를 불러오는데 실패했습니다'}
-          onRetry={refetch}
         />
       </section>
     )
@@ -140,7 +138,6 @@ export default function NewsArticlePage() {
     newsList,
     newsListIsError,
     newsListIsLoading,
-    refetch,
     // 이전 이벤트, 다음 이벤트
     navigate,
     // isNavigating,
@@ -177,7 +174,6 @@ export default function NewsArticlePage() {
             isLoading={newsDetailIsLoading}
             isError={newsDetailIsError}
             error={newsDetailIsError}
-            refetch={refetch}
             onChangeEventDetail={onChangeEventDetail}
           />
         </div>
@@ -194,7 +190,6 @@ export default function NewsArticlePage() {
             handlePageChange={handlePageChange}
             cotentListIsLoading={newsListIsLoading}
             contentListIsError={newsListIsError}
-            refetch={refetch}
             eventType={'news'}
             styleType={'side'}
           />

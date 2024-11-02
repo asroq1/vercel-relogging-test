@@ -1,7 +1,4 @@
-import { EventCard } from './ui/eventCard'
 import { useState } from 'react'
-import { ContentsPagination } from './ContentsPagination'
-import { EventContentCard } from '@/types/IEvent'
 import { useEventsQueries } from '@/hooks/useEventsQueries'
 import ContentList from './ContentList'
 
@@ -9,13 +6,8 @@ export default function EventListGrid() {
   const [currentPage, setCurrentPage] = useState(0) // 초기 페이지 1번으로 설정
   const pageSize = 15 // 페이지 당 아이템 수
 
-  const {
-    eventsList,
-    eventsListIsLoading,
-    evnetListError,
-    eventListIsError,
-    refetch,
-  } = useEventsQueries({ currentPage, pageSize })
+  const { eventsList, eventsListIsLoading, eventListIsError } =
+    useEventsQueries({ currentPage, pageSize })
 
   const handlePageChange = async (newPage: number) => {
     setCurrentPage(newPage)
@@ -26,7 +18,6 @@ export default function EventListGrid() {
   //   return (
   //     <ErrorAlert
   //       error={evnetListError?.message || '데이터를 불러오는데 실패했습니다'}
-  //       onRetry={refetch}
   //     />
   //   )
   // }
@@ -47,7 +38,6 @@ export default function EventListGrid() {
         handlePageChange={handlePageChange}
         cotentListIsLoading={eventsListIsLoading}
         contentListIsError={eventListIsError}
-        refetch={refetch}
         eventType={'events'}
         styleType={'grid'}
       />

@@ -16,7 +16,6 @@ interface UseContentListReturn<T> {
   isError: boolean
   error: Error | null
   totalPages: number
-  refetch: () => void
 }
 
 // 컨텐츠 타입별 fetching 로직 분리
@@ -53,6 +52,5 @@ export function useContentList<T extends NewsArticleCard | EventContentCard>({
     isError: queryResult.isError,
     error: queryResult.error,
     totalPages: queryResult.data?.totalPages || 0,
-    refetch: queryResult.refetch,
   }
 }

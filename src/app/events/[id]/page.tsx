@@ -17,7 +17,6 @@ const EventDetailSection = ({
   isLoading,
   isError,
   error,
-  refetch,
   onChangeEventDetail,
 }: any) => {
   if (isLoading) {
@@ -33,7 +32,6 @@ const EventDetailSection = ({
       <section className="flex flex-[8] flex-col gap-10 md:col-span-6">
         <ErrorAlert
           error={error?.message || '데이터를 불러오는데 실패했습니다'}
-          onRetry={refetch}
         />
       </section>
     )
@@ -169,7 +167,6 @@ export default function EventDetailPage() {
 
     // 이전 이벤트, 다음 이벤트
     navigate,
-    refetch,
   } = useEventsQueries({
     currentPage,
     pageSize,
@@ -205,7 +202,6 @@ export default function EventDetailPage() {
             isLoading={eventDetailIsLoading}
             isError={eventDetailIsError}
             error={eventDetailIsError}
-            refetch={refetch}
             onChangeEventDetail={onChangeEventDetail}
           />
         </div>
@@ -222,7 +218,6 @@ export default function EventDetailPage() {
             handlePageChange={handlePageChange}
             cotentListIsLoading={eventsListIsLoading}
             contentListIsError={eventListIsError}
-            refetch={refetch}
             eventType={'events'}
             styleType={'side'}
           />

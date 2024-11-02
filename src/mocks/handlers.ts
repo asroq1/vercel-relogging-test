@@ -23,7 +23,7 @@ export const handlers = [
 
   http.get('/api/newsArticles/list', async ({ request }) => {
     //  TODO: 5초 대기 지우기
-    await delay(3000)
+    // await delay(3000)
 
     console.log('request', request)
     const url = new URL(request.url)
@@ -90,7 +90,7 @@ export const handlers = [
   // 지자체 행사 mock logic
   http.get('/api/ploggingEvent/list', async ({ request }) => {
     //  TODO: 5초 대기 지우기
-    await delay(3000)
+    // await delay(3000)
     const url = new URL(request.url)
     const page = parseInt(url.searchParams.get('page') || '0')
     const size = parseInt(url.searchParams.get('size') || '10')

@@ -14,7 +14,6 @@ export default function NewsListGrid() {
     newsListError,
     newsListIsError,
     newsListIsLoading,
-    refetch,
   } = useNewsQueries({ currentPage, pageSize })
 
   const handlePageChange = async (newPage: number) => {
@@ -26,7 +25,6 @@ export default function NewsListGrid() {
     return (
       <ErrorAlert
         error={newsListError?.message || '데이터를 불러오는데 실패했습니다'}
-        onRetry={refetch}
       />
     )
   }
@@ -48,7 +46,6 @@ export default function NewsListGrid() {
         handlePageChange={handlePageChange}
         cotentListIsLoading={newsListIsLoading}
         contentListIsError={newsListIsError}
-        refetch={refetch}
         eventType={'news'}
         styleType={'grid'}
       />
