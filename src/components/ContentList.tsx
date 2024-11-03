@@ -1,7 +1,7 @@
 import { NewsArticleCard } from '@/types/INews'
 import { ContentsPagination } from './ContentsPagination'
 import NewsCard from './NewsCard'
-import { EventCard } from './ui/eventCard'
+import { EventCard } from './ui/EventCard'
 import { EventContentCard } from '@/types/IEvent'
 import { LoadingSkeleton } from './status/LoadingSkeleton'
 import { ErrorAlert } from './status/ErrorAlert'

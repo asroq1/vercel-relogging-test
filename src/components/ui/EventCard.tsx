@@ -22,7 +22,6 @@ export const EventCard = ({ eventData }: { eventData: EventContentCard }) => {
     })
   }
 
-  console.log('eventData❷', eventData)
   return (
     <Card
       className="flex aspect-[378/175] min-h-[200px] w-full max-w-[378px] cursor-pointer flex-col overflow-hidden p-4 transition-shadow duration-300 hover:shadow-lg laptop:min-h-[200px] laptop:max-w-[378px]"
