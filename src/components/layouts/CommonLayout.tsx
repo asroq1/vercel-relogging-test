@@ -27,7 +27,7 @@ export default function CommonLayout({
                 width={40}
                 height={40}
                 style={{ width: 'auto', height: 'auto' }} // 자동 크기 조정
-              ></Image>
+              />
             </Link>
           </div>
           {/* 데스크탑 로그인 버튼 */}
@@ -45,7 +45,6 @@ export default function CommonLayout({
           </div>
         </nav>
         {children}
-        {/* <footer>푸터</footer> */}
       </body>
     </html>
   )

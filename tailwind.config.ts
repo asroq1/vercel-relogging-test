@@ -24,6 +24,7 @@ const config: Config = {
       colors: {
         text: '#222831',
         textLight: '#9BA2AD',
+        textStrong: '#222831',
         solid: '#D2D2D2',
         white: '#FFFFFF',
         background: '#F6F6F6',

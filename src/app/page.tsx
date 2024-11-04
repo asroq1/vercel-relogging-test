@@ -4,6 +4,7 @@ import EventListGrid from '@/components/EventListGrid'
 import NewsListGrid from '@/components/NewsListGrid'
 import { useState } from 'react'
 import Image from 'next/image'
+import Footer from '@/components/layouts/Footer'
 
 const images = {
   mobile: {
@@ -25,11 +26,10 @@ const images = {
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('지자체 플로깅')
-
+  // max-w-[1440px]
   return (
-    <div className="min-h-screen bg-gray-100">
-      {/* 네비게이션 바 */}
-      <section className="margin-auto hidden w-dvw max-w-[1440px] laptop:block">
+    <div className="h-full w-full bg-background">
+      <section className="margin-auto hidden w-dvw laptop:block">
         <Image
           {...images.desktop}
           alt="로고 이미지"
@@ -60,39 +60,41 @@ export default function Home() {
         />
       </section>
       {/* 메인 콘텐츠 */}
-      <main className="mx-auto max-w-7xl laptop:mt-16">
-        {/* 헤더 섹션 */}
-        {/* 탭 섹션 */}
-        <div className="rounded-lg bg-white p-5 shadow laptop:p-10">
-          <div className="mb-4 flex border-b border-gray-200">
-            <button
-              className={`block px-6 py-4 text-gray-600 hover:text-textLight focus:outline-none ${
-                activeTab === '지자체 플로깅'
-                  ? 'border-b-2 border-text font-medium text-blue-500'
-                  : ''
-              }`}
-              onClick={() => setActiveTab('지자체 플로깅')}
-            >
-              지자체 플로깅
-            </button>
-            <button
-              className={`block px-6 py-4 text-gray-600 hover:text-textLight focus:outline-none ${
-                activeTab === '환경 뉴스'
-                  ? 'border-b-2 border-text font-medium text-blue-500'
-                  : ''
-              }`}
-              onClick={() => setActiveTab('환경 뉴스')}
-            >
-              환경 뉴스
-            </button>
+      <div className="m-auto h-full w-full max-w-7xl bg-white">
+        <main className="mx-auto max-w-7xl laptop:mt-16">
+          {/* 탭 섹션 */}
+          <div className="rounded-lg bg-white p-5 shadow laptop:p-10">
+            <div className="mb-4 flex border-b border-gray-200">
+              <button
+                className={`block px-6 py-4 text-gray-600 hover:text-textLight focus:outline-none ${
+                  activeTab === '지자체 플로깅'
+                    ? 'border-b-2 border-text font-medium text-blue-500'
+                    : ''
+                }`}
+                onClick={() => setActiveTab('지자체 플로깅')}
+              >
+                지자체 플로깅
+              </button>
+              <button
+                className={`block px-6 py-4 text-gray-600 hover:text-textLight focus:outline-none ${
+                  activeTab === '환경 뉴스'
+                    ? 'border-b-2 border-text font-medium text-blue-500'
+                    : ''
+                }`}
+                onClick={() => setActiveTab('환경 뉴스')}
+              >
+                환경 뉴스
+              </button>
+            </div>
+            {activeTab === '지자체 플로깅' && <EventListGrid />}
+            {/* 뉴스 그리드 */}
+            {activeTab === '환경 뉴스' && <NewsListGrid />}
+            {/* 지자체 행사 그리드 */}
+            {/* )} */}
           </div>
-          {activeTab === '지자체 플로깅' && <EventListGrid />}
-          {/* 뉴스 그리드 */}
-          {activeTab === '환경 뉴스' && <NewsListGrid />}
-          {/* 지자체 행사 그리드 */}
-          {/* )} */}
-        </div>
-      </main>
+        </main>
+      </div>
+      <Footer />
     </div>
   )
 }
