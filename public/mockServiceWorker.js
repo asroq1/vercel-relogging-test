@@ -214,7 +214,7 @@ async function getResponse(event, client, requestId) {
       type: 'REQUEST',
       payload: {
         id: requestId,
-        url: request.url ?? '',
+        url: request.url,
         mode: request.mode,
         method: request.method,
         headers: Object.fromEntries(request.headers.entries()),

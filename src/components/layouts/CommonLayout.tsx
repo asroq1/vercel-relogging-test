@@ -1,7 +1,11 @@
+'use client'
+
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
 import Link from 'next/link'
 import Image from 'next/image'
+import LoginModal from '../LoginModal'
+import LoginButton from '../LoginButton'
 import { MobileNav } from '../MobileNav'
 
 export const metadata: Metadata = {
@@ -32,12 +36,7 @@ export default function CommonLayout({
           </div>
           {/* 데스크탑 로그인 버튼 */}
           <div className="hidden laptop:block">
-            <Link
-              href="/login"
-              className="rounded-md text-sm font-medium text-gray-500 hover:text-gray-700"
-            >
-              로그인
-            </Link>
+            <LoginButton />
           </div>
           {/* 모바일 햄버거 메뉴 */}
           <div className="flex-shrink-0 laptop:hidden">
@@ -45,6 +44,8 @@ export default function CommonLayout({
           </div>
         </nav>
         {children}
+        <LoginModal />
+        {/* <footer>푸터</footer> */}
       </body>
     </html>
   )
