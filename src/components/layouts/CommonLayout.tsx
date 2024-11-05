@@ -7,6 +7,7 @@ import Image from 'next/image'
 import LoginModal from '../LoginModal'
 import LoginButton from '../LoginButton'
 import { MobileNav } from '../MobileNav'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
   title: '리로깅',
@@ -21,32 +22,34 @@ export default function CommonLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="bg-white">
-        <nav className="flex h-10 w-full items-center justify-between bg-white p-5 laptop:h-16">
-          <div className="flex-shrink-0">
-            <Link href="/" className="text-xl font-bold">
-              <Image
-                src={'/logo-navi.png'}
-                alt="상단 심볼 로고"
-                width={40}
-                height={40}
-                style={{ width: 'auto', height: 'auto' }} // 자동 크기 조정
-              />
-            </Link>
-          </div>
-          {/* 데스크탑 로그인 버튼 */}
-          <div className="hidden laptop:block">
-            <LoginButton />
-          </div>
-          {/* 모바일 햄버거 메뉴 */}
-          <div className="flex-shrink-0 laptop:hidden">
-            <MobileNav />
-          </div>
-        </nav>
-        {children}
-        <LoginModal />
-        {/* <footer>푸터</footer> */}
-      </body>
+      <Suspense>
+        <body className="bg-white">
+          <nav className="flex h-10 w-full items-center justify-between bg-white p-5 laptop:h-16">
+            <div className="flex-shrink-0">
+              <Link href="/" className="text-xl font-bold">
+                <Image
+                  src={'/logo-navi.png'}
+                  alt="상단 심볼 로고"
+                  width={40}
+                  height={40}
+                  style={{ width: 'auto', height: 'auto' }} // 자동 크기 조정
+                />
+              </Link>
+            </div>
+            {/* 데스크탑 로그인 버튼 */}
+            <div className="hidden laptop:block">
+              <LoginButton />
+            </div>
+            {/* 모바일 햄버거 메뉴 */}
+            <div className="flex-shrink-0 laptop:hidden">
+              <MobileNav />
+            </div>
+          </nav>
+          {children}
+          <LoginModal />
+          {/* <footer>푸터</footer> */}
+        </body>
+      </Suspense>
     </html>
   )
 }
