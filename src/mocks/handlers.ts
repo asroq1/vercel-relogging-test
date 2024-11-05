@@ -73,14 +73,14 @@ export const handlers = [
     return HttpResponse.json(article)
   }),
 
-  http.get('/api/ploggingEvent/:id/next', ({ params }) => {
+  http.get('/api/ploggingEvents/:id/next', ({ params }) => {
     const article = createPloggingEventDetail(parseInt(params.id as string))
     article.id = faker.number.int({ min: 1, max: 1000 })
 
     return HttpResponse.json(article)
   }),
 
-  http.get('/api/ploggingEvent/:id/prev', ({ params }) => {
+  http.get('/api/ploggingEvents/:id/prev', ({ params }) => {
     const article = createPloggingEventDetail(parseInt(params.id as string))
     article.id = faker.number.int({ min: 1, max: 1000 })
 
@@ -88,7 +88,7 @@ export const handlers = [
   }),
 
   // 지자체 행사 mock logic
-  http.get('/api/ploggingEvent/list', async ({ request }) => {
+  http.get('/api/ploggingEvents/list', async ({ request }) => {
     //  TODO: 5초 대기 지우기
     // await delay(3000)
     const url = new URL(request.url)
@@ -119,7 +119,7 @@ export const handlers = [
   }),
 
   // 플로깅 이벤트 상세 조회
-  http.get('/api/ploggingEvent/:id', ({ params }) => {
+  http.get('/api/ploggingEvents/:id', ({ params }) => {
     const eventId = parseInt(params.id as string)
     const eventDetail = createPloggingEventDetail(eventId)
 

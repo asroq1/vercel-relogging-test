@@ -14,7 +14,7 @@ export async function fetchEventsArticle(page: number, size: number) {
     sort: 'desc',
   })
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/ploggingEvent/list?${queryParams}`,
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/ploggingEvents/list?${queryParams}`,
   )
   if (!response.ok) {
     throw new Error('Network response was not ok')
@@ -24,7 +24,7 @@ export async function fetchEventsArticle(page: number, size: number) {
 
 const fetchEventDetail = async (eventId: string) => {
   const data = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/ploggingEvent/${eventId}`,
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/ploggingEvents/${eventId}`,
     {
       method: 'get',
     },
@@ -62,7 +62,7 @@ export const useEventsQueries = ({
       currentId: string
     }) => {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/ploggingEvent/${currentId}/${type}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/ploggingEvents/${currentId}/${type}`,
       )
 
       if (!response.ok) throw new Error(`Failed to fetch ${type} event`)
