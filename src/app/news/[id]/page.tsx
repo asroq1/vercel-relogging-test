@@ -168,7 +168,7 @@ export default function NewsArticlePage() {
     <article className="m-auto mt-16 flex max-h-[1355px] w-full max-w-7xl gap-6 bg-white p-5">
       <div className="flex w-full gap-6">
         {/* 왼쪽 섹션 (7/10) */}
-        <div className="min-w-0 flex-[8]">
+        <div className="min-w-0 laptop:flex-[8]">
           <EventDetailSection
             newsDetail={newsDetail}
             isLoading={newsDetailIsLoading}
@@ -182,7 +182,7 @@ export default function NewsArticlePage() {
         <div className="hidden h-auto w-[1px] bg-gray-200 laptop:block" />
 
         {/* 오른쪽 사이드바 */}
-        <div className="min-w-0 flex-[4]">
+        <div className="hidden min-w-0 laptop:block laptop:flex-[4]">
           <ContentList
             contentData={newsList?.newsArticleSimpleResponseList}
             totalPage={newsList?.totalPages}

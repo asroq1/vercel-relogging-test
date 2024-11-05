@@ -39,7 +39,7 @@ const NewsCard = ({ article }: { article: NewsArticleCard }) => {
     <Card
       onClick={() => onClickNewsDetail('side')}
       key={article?.id}
-      className="/* 데스크탑 너비 */ /* 데스크탑 높이 */ flex aspect-[378/175] min-h-[200px] w-full max-w-[378px] cursor-pointer flex-col gap-4 overflow-hidden p-4 transition-shadow duration-300 hover:shadow-lg laptop:min-h-[200px] laptop:max-w-[378px]"
+      className="/* 데스크탑 너비 */ /* 데스크탑 높이 */ flex aspect-[378/175] min-h-[200px] w-full cursor-pointer flex-col gap-4 overflow-hidden p-4 transition-shadow duration-300 hover:shadow-lg laptop:min-h-[200px] laptop:max-w-[378px]"
     >
       {/* 카드 헤더 */}
       <CardHeader className="h-[25%] space-y-0 p-0">

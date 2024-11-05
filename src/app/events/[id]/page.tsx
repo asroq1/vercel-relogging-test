@@ -37,7 +37,7 @@ const EventDetailSection = ({
     )
   }
   return (
-    <section className="flex flex-[8] flex-col gap-10 md:col-span-6">
+    <section className="flex flex-[8] flex-col gap-10 pb-10 md:col-span-6">
       {/* 이벤트 상단 제목 */}
       <div className="flex w-full flex-col gap-10">
         <HomeButton />
@@ -195,8 +195,8 @@ export default function EventDetailPage() {
     <article className="m-auto mt-16 flex max-h-[1355px] w-full max-w-7xl gap-6 bg-white p-5">
       {/* // 이벤트 이미지 밎 상세 정보 */}
       <div className="flex w-full gap-6">
-        {/* 왼쪽 사이드바 */}
-        <div className="min-w-0 flex-[8]">
+        {/* 왼쪽 뉴스 디테일 */}
+        <div className="min-w-0 laptop:flex-[8]">
           <EventDetailSection
             eventDetail={eventDetail}
             isLoading={eventDetailIsLoading}
@@ -210,7 +210,7 @@ export default function EventDetailPage() {
         <div className="hidden h-auto w-[1px] bg-gray-200 laptop:block" />
 
         {/* 오른쪽 사이드바 */}
-        <div className="min-w-0 flex-[4]">
+        <div className="hidden min-w-0 laptop:block laptop:flex-[4]">
           <ContentList
             contentData={eventsList?.content}
             totalPage={eventsList?.totalPages}
