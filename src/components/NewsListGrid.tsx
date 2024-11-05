@@ -9,12 +9,8 @@ export default function NewsListGrid() {
   const [currentPage, setCurrentPage] = useState(0) // 초기 페이지 1번으로 설정
   const pageSize = 15 // 페이지 당 아이템 수
 
-  const {
-    newsList,
-    newsListError,
-    newsListIsError,
-    newsListIsLoading,
-  } = useNewsQueries({ currentPage, pageSize })
+  const { newsList, newsListError, newsListIsError, newsListIsLoading } =
+    useNewsQueries({ currentPage, pageSize })
 
   const handlePageChange = async (newPage: number) => {
     setCurrentPage(newPage)
@@ -41,7 +37,7 @@ export default function NewsListGrid() {
     <>
       <ContentList
         contentData={newsList?.newsArticleSimpleResponseList}
-        totalPage={newsList?.totalPages}
+        totalPage={newsList?.totalPage}
         currentPage={currentPage}
         handlePageChange={handlePageChange}
         cotentListIsLoading={newsListIsLoading}
