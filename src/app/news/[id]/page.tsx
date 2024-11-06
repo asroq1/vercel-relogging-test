@@ -185,7 +185,7 @@ export default function NewsArticlePage() {
         <div className="hidden min-w-0 laptop:block laptop:flex-[4]">
           <ContentList
             contentData={newsList?.newsArticleSimpleResponseList}
-            totalPage={newsList?.totalPages}
+            totalPage={newsList?.totalPage}
             currentPage={currentPage}
             handlePageChange={handlePageChange}
             cotentListIsLoading={newsListIsLoading}
