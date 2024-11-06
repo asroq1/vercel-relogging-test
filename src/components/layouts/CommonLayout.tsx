@@ -6,7 +6,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import LoginModal from '../LoginModal'
 import LoginButton from '../LoginButton'
-import { MobileNav } from '../MobileNav'
 import { Suspense } from 'react'
 
 export const metadata: Metadata = {
@@ -24,8 +23,8 @@ export default function CommonLayout({
     <html lang="ko">
       <Suspense>
         <body className="bg-white">
-          <nav className="flex h-10 w-full items-center justify-between bg-white p-5 laptop:h-16">
-            <div className="flex-shrink-0">
+          <nav className="flex h-full max-h-[60px] w-full items-center justify-between bg-white p-5 laptop:h-16">
+            <div>
               <Link href="/" className="text-xl font-bold">
                 <Image
                   src={'/logo-navi.png'}
@@ -37,13 +36,13 @@ export default function CommonLayout({
               </Link>
             </div>
             {/* 데스크탑 로그인 버튼 */}
-            <div className="hidden laptop:block">
+            <div>
               <LoginButton />
             </div>
             {/* 모바일 햄버거 메뉴 */}
-            <div className="flex-shrink-0 laptop:hidden">
+            {/* <div className="laptop:hidden">
               <MobileNav />
-            </div>
+            </div> */}
           </nav>
           {children}
           <LoginModal />
