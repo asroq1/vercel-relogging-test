@@ -30,8 +30,9 @@ const OauthButton = ({ oauthType, className }: IOauthType) => {
   //   })
   // }
   const onOauthLoginHandler = () => {
-    window.location.href = `${baseUrl}/oauth2/authorization/${oauthType}`
+    window.location.href = `${baseUrl}/oauth2/authorization/${oauthType}?state=${process.env.NEXT_PUBLIC_BASE_URL}`
   }
+
   return (
     <>
       <button
