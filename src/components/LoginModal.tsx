@@ -8,7 +8,8 @@ import {
   DialogOverlay,
   DialogTitle,
 } from '@/components/ui/dialog'
-import OauthButton from './OauthButton'
+import KakaoOauthButton from './KakaoOauthButton'
+import GoogleOauthButton from './GoogleOauthButton'
 
 export default function LoginModal() {
   const { isOpen, closeModal } = useLoginModal()
@@ -24,11 +25,10 @@ export default function LoginModal() {
             </DialogTitle>
           </div>
         </DialogHeader>
-
         <div className="margin-auto flex w-full flex-col items-start space-y-4 p-6 pt-2 desktop:max-w-[400px]">
           <span className="margin-auto text-xs laptop:mx-0">소셜로그인</span>
-          <OauthButton oauthType="google" />
-          <OauthButton oauthType="kakao" />
+          <GoogleOauthButton />
+          <KakaoOauthButton />
         </div>
       </DialogContent>
     </Dialog>

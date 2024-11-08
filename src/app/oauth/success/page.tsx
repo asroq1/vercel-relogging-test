@@ -8,11 +8,11 @@ export default function OAuthSuccessPage() {
   const searchParams = useSearchParams()
 
   useEffect(() => {
-    const accessToken = searchParams.get('accessToken')
-    console.log('accessToken', accessToken)
-    if (accessToken) {
-      localStorage.setItem('accessToken', accessToken)
-      router.replace('/')
+    const authCode = searchParams.get('code')
+    if (authCode) {
+      localStorage.setItem('authCode', authCode)
+      // router.replace('/')
+      // TODO : 백엔드 서버로 인증 코드를 전송하여 토큰을 발급받는 로직을 구현 필요
     }
   }, [searchParams, router])
 
