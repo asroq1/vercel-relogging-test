@@ -1,15 +1,19 @@
 import { NewsArticleCard } from '@/types/INews'
 import { ContentsPagination } from './ContentsPagination'
 import NewsCard from './NewsCard'
-import { EventCard } from './ui/EventCard'
+import { EventCard } from './EventCard'
 import { EventContentCard } from '@/types/IEvent'
 import { LoadingSkeleton } from './status/LoadingSkeleton'
 import { ErrorAlert } from './status/ErrorAlert'
 import { EmptyState } from './status/EmptyStatus'
+import { MeetupCard } from './MeetupCard'
+import { MeetupContentCard } from '@/types/IMeetup'
 
+export type ContentType = NewsArticleCard | EventContentCard | MeetupContentCard
+export type EventType = 'news' | 'events' | 'meetup'
 interface IContentList {
-  contentData: (NewsArticleCard | EventContentCard)[]
-  eventType: 'news' | 'events'
+  contentData: ContentType[]
+  eventType: EventType
   styleType: 'grid' | 'side'
   currentPage: number
   totalPage: number
@@ -17,6 +21,19 @@ interface IContentList {
   cotentListIsLoading?: boolean
   contentListIsError?: boolean
   contentListError?: Error
+}
+
+const contentTemplate = (item: ContentType, type: EventType) => {
+  switch (type) {
+    case 'news':
+      return <NewsCard article={item as NewsArticleCard} key={item.id} />
+    case 'events':
+      return <EventCard eventData={item as EventContentCard} key={item.id} />
+    case 'meetup':
+      return <MeetupCard meetupData={item as MeetupContentCard} key={item.id} />
+    default:
+      return null
+  }
 }
 
 const ContentList = ({
@@ -69,13 +86,7 @@ const ContentList = ({
   return (
     <div className={containerStyles[styleType]}>
       <section className={layoutStyles[styleType]}>
-        {contentData.map((item: NewsArticleCard | EventContentCard) =>
-          eventType === 'news' ? (
-            <NewsCard article={item as NewsArticleCard} key={item.id} />
-          ) : (
-            <EventCard eventData={item as EventContentCard} key={item.id} />
-          ),
-        )}
+        {contentData.map((item) => contentTemplate(item, eventType))}
       </section>
       <div className={paginationStyles[styleType]}>
         <ContentsPagination

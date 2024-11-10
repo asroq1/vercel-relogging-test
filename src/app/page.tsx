@@ -5,6 +5,7 @@ import NewsListGrid from '@/components/NewsListGrid'
 import { useState } from 'react'
 import Image from 'next/image'
 import Footer from '@/components/layouts/Footer'
+import MeetupList from '@/components/MeetupList'
 
 const images = {
   mobile: {
@@ -25,7 +26,7 @@ const images = {
 } as const
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState('지자체 플로깅')
+  const [activeTab, setActiveTab] = useState('우리 동네 플로깅')
   // max-w-[1440px]
   return (
     <div className="h-full w-full bg-background">
@@ -67,13 +68,23 @@ export default function Home() {
             <div className="mb-4 flex border-b border-gray-200">
               <button
                 className={`block px-6 py-4 text-gray-600 hover:text-textLight focus:outline-none ${
-                  activeTab === '지자체 플로깅'
+                  activeTab === '우리 동네 플로깅'
                     ? 'border-b-2 border-text font-medium text-blue-500'
                     : ''
                 }`}
-                onClick={() => setActiveTab('지자체 플로깅')}
+                onClick={() => setActiveTab('우리 동네 플로깅')}
               >
-                지자체 플로깅
+                우리 동네 플로깅
+              </button>
+              <button
+                className={`block px-6 py-4 text-gray-600 hover:text-textLight focus:outline-none ${
+                  activeTab === '플로깅 모임'
+                    ? 'border-b-2 border-text font-medium text-blue-500'
+                    : ''
+                }`}
+                onClick={() => setActiveTab('플로깅 모임')}
+              >
+                플로깅 모임
               </button>
               <button
                 className={`block px-6 py-4 text-gray-600 hover:text-textLight focus:outline-none ${
@@ -86,10 +97,12 @@ export default function Home() {
                 환경 뉴스
               </button>
             </div>
-            {activeTab === '지자체 플로깅' && <EventListGrid />}
+            {/* 우리동네 플로깅 그리드 */}
+            {activeTab === '우리 동네 플로깅' && <EventListGrid />}
+            {/* 플로깅 모임 그리드 */}
+            {activeTab === '플로깅 모임' && <MeetupList />}
             {/* 뉴스 그리드 */}
             {activeTab === '환경 뉴스' && <NewsListGrid />}
-            {/* 지자체 행사 그리드 */}
             {/* )} */}
           </div>
         </main>
