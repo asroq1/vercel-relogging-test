@@ -8,18 +8,22 @@ const getAccessToken = async ({
   redirectUri,
 }: OAuthRequest): Promise<OAuthResponse> => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/login/google`,
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/login`,
     {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ authCode, redirectUri, socialType }),
+      // credentials: 'include', // 쿠키 포함
+      body: JSON.stringify({ code: authCode, redirectUri, socialType }),
     },
   )
 
   if (!response.ok) {
-    throw new Error('인증 실패')
+    // 에러 응답 확인을 위한 로깅
+    const errorData = await response.json()
+    console.error('Auth Error:', errorData)
+    throw new Error(errorData.message || 'Authentication failed')
   }
 
   return response.json()
