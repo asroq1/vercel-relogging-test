@@ -1,20 +1,28 @@
 'use client'
 
+import { useOAuth } from '@/hooks/useOAuth'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
 export default function OAuthSuccessPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
-
+  const { mutate: login } = useOAuth()
+  const redirectUri = process.env.NEXT_PUBLIC_AUTH_REDIRECT_URI
   useEffect(() => {
     const authCode = searchParams.get('code')
-    if (authCode) {
-      localStorage.setItem('authCode', authCode)
-      // router.replace('/')
-      // TODO : 백엔드 서버로 인증 코드를 전송하여 토큰을 발급받는 로직을 구현 필요
+    if (!authCode) {
+      router.replace('/login?error=no_code')
+      return
     }
-  }, [searchParams, router])
+    if (!redirectUri) {
+      router.replace('/login?error=no_redirect_uri')
+      return
+    }
+    login({ authCode, redirectUri, socialType: 'GOOGLE' })
+    router.replace('/')
+    // TODO : 백엔드 서버로 인증 코드를 전송하여 토큰을 발급받는 로직을 구현 필요
+  }, [searchParams, router, login, redirectUri])
 
   return (
     <div className="flex h-screen items-center justify-center">
