@@ -4,6 +4,7 @@ import ReactQueryProviders from '@/utils/ReactQueryProvider'
 import { MswComponent } from '@/components/msw.component'
 import { Suspense } from 'react'
 import { Toaster } from '@/components/ui/toaster'
+import '@/styles/globals.css'
 import { cookies } from 'next/headers'
 
 export const metadata: Metadata = {
