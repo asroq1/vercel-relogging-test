@@ -7,6 +7,7 @@ interface UpdateProfileRequest {
   }
   image?: File | null
 }
+
 interface UpdateProfileResponse {
   name: string
   nickname: string
