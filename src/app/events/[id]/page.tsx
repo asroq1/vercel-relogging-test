@@ -85,6 +85,45 @@ export async function generateMetadata({
 }
 
 export default function EventDetailPage() {
+  // const path = usePathname()
+  // const eventId = path.split('/').pop() ?? ''
+  // // const { toast } = useToast()
+  // const {
+  //   // 이벤트 디테일
+  //   eventDetail,
+  //   eventDetailIsError,
+  //   eventDetailIsLoading,
+  //   eventDetailError,
+  //   //이벤트 페이지네이션
+
+  //   // 이전 이벤트, 다음 이벤트
+  //   // navigate,
+  //   isNavigatingPrev,
+  //   isNavigatingNext,
+
+  //   refetchEventDetail,
+  // } = useEventsQueries({
+  //   eventId,
+  // })
+
+  // const onChangeEventDetail = (type: 'prev' | 'next') => {
+  //   if (!eventDetail?.id) return
+
+  //   navigate(
+  //     { type, currentId: eventDetail.id },
+  //     {
+  //       onError: (error: Error) => {
+  //         toast({
+  //           title: '이동 실패',
+  //           description: `${error.message}`,
+  //           variant: 'destructive',
+  //           duration: 1500,
+  //         })
+  //       },
+  //     },
+  //   )
+  // }
+
   return (
     <article className="m-auto mt-16 flex h-auto w-full max-w-7xl gap-6 bg-white p-5">
       {/* // 이벤트 이미지 밎 상세 정보 */}
@@ -93,8 +132,10 @@ export default function EventDetailPage() {
         <div className="w-full min-w-0 laptop:flex-[8]">
           <EventDetailSection />
         </div>
+
         {/* 중앙 Divider */}
         <div className="hidden h-auto w-[1px] bg-gray-200 laptop:block" />
+
         {/* 오른쪽 사이드바 */}
         <div className="hidden min-w-0 laptop:block laptop:flex-[4]">
           <EventSidebar />

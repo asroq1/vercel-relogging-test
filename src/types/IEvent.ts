@@ -15,9 +15,9 @@ export interface IEventDetailSectionProps {
   isError: boolean
   error: Error | null
   // onChangeEventDetail: (type: EventDetailType) => void
-  isNavigatingNext: boolean
-  isNavigatingPrev: boolean
-  refetchEventDetail: () => void
+  // isNavigatingNext: boolean
+  // isNavigatingPrev: boolean
+  // refetchEventDetail: () => void
 }
 
 export interface IEventContentCarouselProps {

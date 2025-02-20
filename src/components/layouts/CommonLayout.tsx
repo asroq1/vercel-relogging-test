@@ -28,6 +28,7 @@ export function CommonLayout({
               alt="상단 심볼 로고"
               width={40}
               height={40}
+              priority
               style={{ width: 'auto', height: 'auto' }} // 자동 크기 조정
             />
           </Link>
@@ -39,9 +40,7 @@ export function CommonLayout({
               <MobileNav />
             </div> */}
       </nav>
-
       <LayoutModalContainer />
-
       <main>{children}</main>
       {/* <footer>푸터</footer> */}
     </>
